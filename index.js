@@ -21,7 +21,6 @@ module.exports = function (str) {
     insertBefore: function (index, s) {
       //order must be stable. so find the last insert for this
       var l = q.length
-//      console.error('INSERT before', q, l)
       if(!l)
         return q.push([index, s]), this
 
@@ -30,7 +29,6 @@ module.exports = function (str) {
       for(; i < l && q[i][0] < index; i++)
         ;
 
-//      console.error('INSERT before', q, i, s)
       q.splice(i, 0, [index, s])
       return this
     },
@@ -46,10 +44,7 @@ module.exports = function (str) {
       var m = rx.exec(str)
       if(!m) return this
       do {
-      //  console.error('WRAP', m, str)
         if(!m) return this
-        console.log('INSERT_BEFORE', m.index + m[0].length, [after])
-        console.log('INSERT_AFTER', m.index, [before])
         this.insertBefore(m.index + m[0].length, after)
         this.insertAfter(m.index, before)
       } while(rx.global && (m = rx.exec(str)))
@@ -71,5 +66,4 @@ module.exports = function (str) {
       return str
     }
   }
-
 }
