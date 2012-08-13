@@ -19,7 +19,7 @@ var iq = require( 'insert-queue' )
 var q = iq('a string to do insertions on')
 q.wrap(/.*/, ['<p>', '</p>'])
 q.wrap(/string/, ['<i>', '</i>'])
-console.log(q.apply)
+console.log(q.apply())
 
 // '<p>a <i>string</i> to do insertions on</i>'
 ```
