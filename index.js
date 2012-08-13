@@ -53,7 +53,7 @@ module.exports = function (str) {
     },
 
     apply: function () {
-      var l = q.length, f = str
+      var l = q.length, f = this.string
 
       while(l--) {
         var i = q[l][0], s = q[l][1]
@@ -64,6 +64,7 @@ module.exports = function (str) {
     queue: q,
     toString: function () {
       return str
-    }
+    },
+    string: str
   }
 }
