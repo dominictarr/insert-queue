@@ -5,15 +5,12 @@ module.exports = function (str) {
     insertAfter: function (index, s) {
       //order must be stable. so find the last insert for this
       var l = q.length
-      
 
       if(!l)
         return q.push([index, s]), this
 
       for(var i = 0; i < l && q[i][0] <= index; i++)
         ;
-       
-      
       q.splice(i, 0, [index, s])
       return this
     },
@@ -41,7 +38,7 @@ module.exports = function (str) {
       rx.global = true
       rx.lastIndex = 0
       
-      var m = rx.exec(str)
+      var m = rx.exec(this.string)
       if(!m) return this
       do {
         if(!m) return this
@@ -63,7 +60,7 @@ module.exports = function (str) {
     },
     queue: q,
     toString: function () {
-      return str
+      return this.string
     },
     string: str
   }
